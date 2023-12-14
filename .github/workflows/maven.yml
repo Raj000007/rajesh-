@@ -23,9 +23,9 @@ jobs:
       run: mvn clean install
 
     - name: Deploy to Tomcat
-      uses: peaceiris/actions-tomcat@v2
+      uses: stefanzweifel/laravel-deploy-tasks@v1
       with:
-        tomcat_version: '9.0.45'
+        ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
         tomcat_url: 'http://54.197.74.82:8080'
         manager_script_username: ${{ secrets.TOMCAT_USERNAME }}
         manager_script_password: ${{ secrets.TOMCAT_PASSWORD }}
